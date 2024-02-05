@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just a try:))</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffcccc; /* Light pink background color */
+    }
+
+    h4 {
+      font-size: 1.5rem;
+      color: #ff3399; /* Pink color for the text */
+    }
+
+    button {
+      font-size: 1rem;
+      padding: 10px;
+      transition: font-size 0.3s;
+      margin-bottom: 10px;
+    }
+
+    #catContainer {
+      position: relative;
+    }
+
+    #yayText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #ff3399; /* Pink color for the text */
+      display: none;
+    }
+
+    #catImage {
+      display: none;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+  <script>
+    let noClicks = 0;
+
+    function handleNoClick() {
+      noClicks++;
+      if (noClicks <= 10) {
+        document.getElementById('yesBtn').style.fontSize = `${1 + noClicks}rem`;
+      } else {
+        document.getElementById('noBtn').style.opacity = 0;
+      }
+
+      // Generate short messages
+      const messages = ["Why?", "Are you sure?", "Please reconsider.", "Give it a chance.", "Think again."];
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      alert(randomMessage);
+    }
+
+    function showCat() {
+      document.getElementById('yayText').style.display = 'block';
+      document.getElementById('catImage').style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <h4>Will You Be My Valentine?</h4>
+  <button id="yesBtn" onclick="showCat()">Yes</button>
+  <button id="noBtn" onclick="handleNoClick()">No</button>
+  <div id="catContainer">
+    <div id="yayText">YAYYY</div>
+    <img id="catImage" src="https://media1.tenor.com/images/ef8311785a0ae48ae2ebf5871a5ce0df/tenor.gif?itemid=17603476" alt="Animated Cute Cat Gif">
+  </div>
+</body>
+</html>
